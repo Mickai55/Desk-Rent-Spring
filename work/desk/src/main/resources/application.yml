@@ -1,0 +1,15 @@
+server:
+  port: 8443
+logging:
+  level:
+    org.springframework.web: INFO
+    com.renting.desk: DEBUG
+spring:
+  data:
+    mongodb:
+      database: db_renting
+      port: 27017
+  jersey:
+    application-path: /api
+mongock:
+  change-logs-scan-package: com.renting.desk.config
