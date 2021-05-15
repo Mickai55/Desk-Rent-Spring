@@ -3,9 +3,11 @@ package com.renting.desk.service;
 import com.renting.desk.model.User;
 import com.renting.desk.model.UserType;
 import com.renting.desk.repository.UserRepository;
+import org.apache.tomcat.util.json.JSONParser;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.configurationprocessor.json.JSONObject;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -34,17 +36,26 @@ public class UserService {
         }
     }
 
-    public User updateUser(String username, User updatedUser) {
-        User u = userRepository.findByUsername(username);
+    public User updateUser(User updatedUser) {
+        User u = userRepository.findByUsername(updatedUser.getUsername());
 
-        if(u != null)
-            throw new BadRequestException("Username already exists");
+        if(u == null)
+            throw new BadRequestException("Username not found");
 
         u.setEmail(updatedUser.getEmail());
         u.setPhone(updatedUser.getPhone());
         u.setLocation(updatedUser.getLocation());
         u.setWebsite_link(updatedUser.getWebsite_link());
+        u.setPhoto(updatedUser.getPhoto());
 
         return userRepository.save(u);
+    }
+
+    public User getUser(String username) {
+        User user = userRepository.findByUsername(username);
+
+        if(user == null)
+            throw new BadRequestException("Username not found");
+        return user;
     }
 }

@@ -29,15 +29,15 @@ public class DatabaseChangeLog {
     public void createDeskDefault(DeskRepository repo) {
         List<Desk> list = new ArrayList<>();
 
-        list.add(createDesk(1, "Google", "Bucharest", 5));
-        list.add(createDesk(2, "Amazon", "Bucharest", 10));
+//        list.add(createDesk(1, "Google", "Bucharest", 5));
+//        list.add(createDesk(2, "Amazon", "Bucharest", 10));
 
-        repo.insert(list);
+//        repo.insert(list);
     }
 
     private Desk createDesk(long id, String name, String address, long total_spaces) {
         Desk desk = new Desk();
-        desk.setId(id);
+//        desk.setId(id);
         desk.setName(name);
         desk.setAddress(address);
         desk.setTotal_spaces(total_spaces);
@@ -51,7 +51,7 @@ public class DatabaseChangeLog {
 
     private Chair createChair(long id, long desk_id, long posX, long posY) {
         Chair chair = new Chair();
-        chair.setId(id);
+        chair.set_id(id);
         chair.setDesk_id(desk_id);
         chair.setPosX(posX);
         chair.setPosY(posY);

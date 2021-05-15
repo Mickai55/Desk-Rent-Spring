@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: com.github.cloudyrock.mongock:mongodb-sync-v4-driver:4.3.2">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/github/cloudyrock/mongock/mongodb-sync-v4-driver/4.3.2/mongodb-sync-v4-driver-4.3.2.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/com/github/cloudyrock/mongock/mongodb-sync-v4-driver/4.3.2/mongodb-sync-v4-driver-4.3.2-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/github/cloudyrock/mongock/mongodb-sync-v4-driver/4.3.2/mongodb-sync-v4-driver-4.3.2-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

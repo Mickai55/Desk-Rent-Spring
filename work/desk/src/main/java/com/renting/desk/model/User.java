@@ -38,7 +38,7 @@ public class User implements UserDetails {
     @Field
     private long request_count;
     @Field
-    private File photo;
+    private String photo;
     @Field
     private UserType userType;
 

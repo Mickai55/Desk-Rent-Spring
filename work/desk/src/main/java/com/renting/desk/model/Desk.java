@@ -15,14 +15,26 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 public class Desk {
-    @Id
-    private Long id;
+//    @Id
+    private Long _id;
     @Field
     private String name;
     @Field
     private String address;
     @Field
+    private long available_spaces;
+    @Field
     private long total_spaces;
     @Field
     private List<Chair> chairs = new ArrayList<>();
+    @Field
+    private String dimension;
+    @Field
+    private List<String> images = new ArrayList<>();
+    @Field
+    private boolean has_location;
+    @Field
+    private double lat;
+    @Field
+    private double lon;
 }

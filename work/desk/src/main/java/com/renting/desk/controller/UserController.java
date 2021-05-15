@@ -63,10 +63,18 @@ public class UserController {
     }
 
     @PUT
-    @Path("/update/{username}")
+    @Path("/update")
     @Produces(APPLICATION_JSON)
     @Consumes(APPLICATION_JSON)
-    public Response update(@PathVariable String username, @RequestBody User updatedUser) {
-        return Response.ok().entity(userService.updateUser(username, updatedUser)).build();
+    public Response update(@RequestBody User updatedUser) {
+        return Response.ok().entity(userService.updateUser(updatedUser)).build();
+    }
+
+    @POST
+    @Path("/getUser")
+    @Produces(APPLICATION_JSON)
+//    @Consumes(APPLICATION_JSON)
+    public Response getUser(@RequestBody String username) {
+        return Response.ok().entity(userService.getUser(username)).build();
     }
 }
