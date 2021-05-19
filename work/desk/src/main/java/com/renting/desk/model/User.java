@@ -20,7 +20,7 @@ import java.util.Collection;
 @Getter @Setter @NoArgsConstructor
 public class User implements UserDetails {
     @Id
-    private Long id;
+    private Long _id;
     @Field
     @Indexed(unique = true)
     private String username;

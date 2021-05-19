@@ -15,5 +15,6 @@ public class ChairRequest {
     private long desk_id;
     private long chair_id;
     private String status;
+    private String username;
     private List<String> days = new ArrayList<>();
 }

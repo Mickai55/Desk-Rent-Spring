@@ -3,10 +3,12 @@ package com.renting.desk.controller;
 
 import com.renting.desk.model.ChairRequest;
 import com.renting.desk.model.Desk;
+import com.renting.desk.model.User;
 import com.renting.desk.service.ChairRequestService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.ws.rs.*;
@@ -39,8 +41,16 @@ public class ChairRequestController {
     @GET
     @Path("/{id}")
     @Produces(APPLICATION_JSON)
-    public ChairRequest getById(@PathVariable("id") String id) {
+    public ChairRequest getById(@PathParam("id") String id) {
         return chairRequestService.getChairRequestById(id);
+    }
+
+    @PUT
+    @Path("/update")
+    @Produces(APPLICATION_JSON)
+    @Consumes(APPLICATION_JSON)
+    public Response update(@RequestBody ChairRequest updatedChairRequest) {
+        return Response.ok().entity(chairRequestService.updateChairRequest(updatedChairRequest)).build();
     }
 
 }

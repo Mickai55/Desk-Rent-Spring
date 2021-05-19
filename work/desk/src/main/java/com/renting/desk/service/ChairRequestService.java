@@ -31,9 +31,15 @@ public class ChairRequestService {
     }
 
     public ChairRequest getChairRequestById(String id) {
-        Optional<ChairRequest> tutorialData = chairRequestRepository.findById(Long.parseLong(id));
+        Optional<ChairRequest> data = chairRequestRepository.findById(Long.parseLong(id));
+        return data.get();
+    }
 
-        return tutorialData.get();
+    public ChairRequest updateChairRequest(ChairRequest chairRequest) {
+        Optional<ChairRequest> data = chairRequestRepository.findById(chairRequest.get_id());
+        data.get().setDays(chairRequest.getDays());
+        data.get().setStatus(chairRequest.getStatus());
 
+        return chairRequestRepository.save(data.get());
     }
 }

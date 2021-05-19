@@ -1,5 +1,6 @@
 package com.renting.desk.service;
 
+import com.renting.desk.model.ChairRequest;
 import com.renting.desk.model.User;
 import com.renting.desk.model.UserType;
 import com.renting.desk.repository.UserRepository;
@@ -12,6 +13,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import javax.ws.rs.BadRequestException;
+import java.util.List;
 
 
 @Service
@@ -21,6 +23,18 @@ public class UserService {
     private static Logger LOG = LoggerFactory.getLogger(UserService.class);
     @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;
+
+    public List<User> getAllUsers() {
+        return userRepository.findAll();
+    }
+
+    public User getUser(String username) {
+        User user = userRepository.findByUsername(username);
+
+        if(user == null)
+            throw new BadRequestException("Username not found");
+        return user;
+    }
 
     public User saveUser(User newUser) {
         try {
@@ -44,18 +58,12 @@ public class UserService {
 
         u.setEmail(updatedUser.getEmail());
         u.setPhone(updatedUser.getPhone());
+        u.setRequest_count(updatedUser.getRequest_count());
         u.setLocation(updatedUser.getLocation());
         u.setWebsite_link(updatedUser.getWebsite_link());
         u.setPhoto(updatedUser.getPhoto());
+        u.setUserType(updatedUser.getUserType());
 
         return userRepository.save(u);
-    }
-
-    public User getUser(String username) {
-        User user = userRepository.findByUsername(username);
-
-        if(user == null)
-            throw new BadRequestException("Username not found");
-        return user;
     }
 }

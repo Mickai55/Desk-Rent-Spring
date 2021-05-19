@@ -1,5 +1,6 @@
 package com.renting.desk.controller;
 
+import com.renting.desk.model.ChairRequest;
 import com.renting.desk.model.User;
 import com.renting.desk.payload.JWTLoginSuccessResponse;
 import com.renting.desk.payload.LoginRequest;
@@ -20,6 +21,8 @@ import javax.validation.Valid;
 import javax.ws.rs.*;
 import javax.ws.rs.core.Response;
 
+import java.util.List;
+
 import static javax.ws.rs.core.MediaType.APPLICATION_JSON;
 
 
@@ -36,6 +39,14 @@ public class UserController {
     private JwtTokenProvider tokenProvider;
     @Autowired
     private AuthenticationManager authenticationManager;
+
+
+    @GET
+    @Produces(APPLICATION_JSON)
+    @Consumes(APPLICATION_JSON)
+    public List<User> getAllChairRequests() {
+        return userService.getAllUsers();
+    }
 
     @POST
     @Path("/register")
