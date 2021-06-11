@@ -31,13 +31,6 @@ public class DeskService {
     public Desk saveDesk(Desk newDesk) {
         try {
             LOG.debug("DeskService: Start Save Desk");
-
-//            if(deskRepository.findByName(newDesk.getName()) != null)
-//                throw new BadRequestException("Desk already exists");
-
-//            for (int i = 1; i <= newDesk.getTotal_spaces(); i++) {
-//                newDesk.getChairs().add(createChair(i, newDesk.getId(), 0, 0));
-//            }
             return deskRepository.save(newDesk);
         }
         finally {
@@ -52,16 +45,8 @@ public class DeskService {
             throw new BadRequestException("Desk not found");
 
         u.setChairs(updatedDesk.getChairs());
+        u.setAvailable_spaces(updatedDesk.getAvailable_spaces());
 
         return deskRepository.save(u);
-    }
-
-    private Chair createChair(long id, long desk_id, long posX, long posY) {
-        Chair chair = new Chair();
-        chair.set_id(id);
-        chair.setDesk_id(desk_id);
-        chair.setPosX(posX);
-        chair.setPosY(posY);
-        return chair;
     }
 }

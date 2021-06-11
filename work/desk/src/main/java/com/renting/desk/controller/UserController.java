@@ -40,7 +40,6 @@ public class UserController {
     @Autowired
     private AuthenticationManager authenticationManager;
 
-
     @GET
     @Produces(APPLICATION_JSON)
     @Consumes(APPLICATION_JSON)
@@ -84,7 +83,6 @@ public class UserController {
     @POST
     @Path("/getUser")
     @Produces(APPLICATION_JSON)
-//    @Consumes(APPLICATION_JSON)
     public Response getUser(@RequestBody String username) {
         return Response.ok().entity(userService.getUser(username)).build();
     }

@@ -15,7 +15,6 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 public class Desk {
-//    @Id
     private Long _id;
     @Field
     private String name;

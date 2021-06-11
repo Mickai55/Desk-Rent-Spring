@@ -11,15 +11,10 @@ import org.springframework.stereotype.Component;
 @Component
 public class JerseyConfig extends ResourceConfig {
     public JerseyConfig() {
-//register resources
         register(UserController.class);
         register(DeskController.class);
         register(RentRequestController.class);
         register(ChairRequestController.class);
-//register custom errors
         register(CustomBadRequestException.class);
-
-//        register(CorsFilter.class);
-
     }
 }

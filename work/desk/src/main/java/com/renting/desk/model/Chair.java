@@ -16,5 +16,4 @@ public class Chair {
     private List<Integer> requests = new ArrayList<>();
     private double posX;
     private double posY;
-
 }

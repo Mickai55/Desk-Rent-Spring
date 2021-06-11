@@ -16,7 +16,7 @@ import java.util.List;
 import static javax.ws.rs.core.MediaType.APPLICATION_JSON;
 
 @RestController
-@CrossOrigin("*")
+@CrossOrigin( origins = "http://localhost:4200")
 @Path("/rentReq")
 public class RentRequestController {
     @Autowired
